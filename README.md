@@ -1,7 +1,7 @@
 
 # Bad Footer Fixer
 
-Have you ever had problems with corrupted photos? And you can't import them in the after effects version below CC2019? Well, we have a solution.
+Have you ever had problems with corrupted photos? And you can't import them to after effects version below CC2019? Well, we have a solution.
 
 introduce Bad Footer Fixer
 written using the Batch programming language

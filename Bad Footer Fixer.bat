@@ -120,7 +120,7 @@ ECHO.=                                       =
 ECHO.=             [KNOWN ERROR]             =
 ECHO.=                                       =
 ECHO.= 1.ERROR : PUT UR IMAGE FILE TO /input =
-ECHO.=  > PUT UR PHOTO TO /input             =
+ECHO.=  - PUT UR PHOTO TO /input             =
 ECHO.=                                       =
 ECHO.=========================================
 

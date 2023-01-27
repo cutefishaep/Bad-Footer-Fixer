@@ -3,8 +3,14 @@
 
 Have you ever had problems with corrupted photos? And you can't import them to after effects version below CC2019? Well, we have a solution.
 
+![](https://github.com/cutefishaep/Bad-Footer-Fixer/blob/main/aftereffecterror.png)
+
 introduce Bad Footer Fixer
-written using the Batch programming language
+writted using the Batch programming language
+
+## SPECIAL THANKS FOR NCONVERT FOR HELPING THIS PROJECT ✨ ##
+the link if you want to make smiliar tools like this :
+https://www.xnview.com/en/nconvert/
 
 ## Installation
 

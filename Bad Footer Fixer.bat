@@ -4,6 +4,7 @@ mode con: cols=41 lines=20
 set WORKINGDIR=""
 set WORKINGDIR=%~dp0
 set input=%WORKINGDIR%input\
+set output=%WORKINGDIR%output\
 set tools=%WORKINGDIR%tools\
 :MENU
 CLS
@@ -11,11 +12,11 @@ CLS
 cd %WORKINGDIR%
 ECHO.=========================================
 ECHO.=           Bad Footer Fixer            =
-ECHO.=          version 1.0 STABLE           =
+ECHO.=          version 1.3 STABLE           =
 ECHO.=========================================
 ECHO.=========================================
 ECHO.= 1. Fix All (.JPG AND .PNG)            =
-ECHO.= 2. Sharpen (Coming Soon)              =
+ECHO.= 2. Convert                            =
 ECHO.= 3. Help                               =
 ECHO.= 4. About                              =
 ECHO.=========================================
@@ -26,7 +27,7 @@ ECHO.=========================================
 set choice_1=
 set /p choice_1=Your choice: 
 if /i "%choice_1%"=="1" goto FIXALL
-if /i "%choice_1%"=="2" goto SHARPEN
+if /i "%choice_1%"=="2" goto CONVERTSTART
 if /i "%choice_1%"=="3" goto HELP 
 if /i "%choice_1%"=="4" goto ABOUT
 if /i "%choice_1%"=="0" exit
@@ -88,16 +89,115 @@ cls
  goto MENU
 )
  
- 
- :SHARPEN
+:CONVERTSTART
+cls
 ECHO.=========================================
-ECHO.=             Coming soon               =
-ECHO.=          Sharpen & Unsharp            =
+ECHO.=             FISH CONVERTER            =
+ECHO.=                 V 1.3                 =
+ECHO.=========================================
+ECHO.=       SPECIAL THANKS FOR NCONVERT     =
+ECHO.=========================================
+ECHO.=              Start up...              =
+ECHO.=========================================
+cls
+
+:CONVERT
+cls
+ECHO.=========================================
+ECHO.=             FISH CONVERTER            =
+ECHO.=                 V 1.3                 =
+ECHO.=========================================
+ECHO.=                [PHOTO]                =
+ECHO.= 1. JFIF TO JPG                        =
+ECHO.= 2. JFIF TO PNG                        =
+ECHO.=                                       =
+ECHO.=========================================
+ECHO.=               0. BACK                 =
+ECHO.=========================================
+set convertsec=
+set /p convertsec=Your choice: 
+if /i "%convertsec%"=="1" goto JFIFTOJPEG
+if /i "%convertsec%"=="2" goto JFIFTOPNG
+if /i "%convertsec%"=="0" goto MENU
+timeout /T 1 > nul
+
+
+
+:JFIFTOJPEG
+cls
+IF NOT EXIST "%input%*.jfif" (
+ECHO.=========================================
+ECHO.=  ERROR : PUT UR JFIF FILE TO /input   =
+ECHO.=========================================
+pause
+goto CONVERT
+) ELSE (
+ECHO.=========================================
+ECHO.=              converting               =
+ECHO.=========================================
+"%tools%nconvert" -quiet -overwrite -D -out jpeg "%input%*.jfif" *.jpg
+cls
+ECHO.=========================================
+ECHO.=                Done..                 =
+ECHO.=========================================
+cls
+ECHO.=========================================
+ECHO.=             Fixing Photo              =
+ECHO.=========================================
+"%tools%nconvert" -quiet -overwrite -D -out jpeg "%input%*jpg" *.jpg
+cls
+ECHO.=========================================
+ECHO.=                Done..                 =
+ECHO.=========================================
+timeout /T 1 > nul
+cls
+ECHO.=========================================
+ECHO.=       Check your /input file          =
+ECHO.=========================================
+timeout /T 5 > nul
+cls
+ goto CONVERT
+)
+
+
+
+:JFIFTOPNG
+cls
+IF NOT EXIST "%input%*.jfif" (
+ECHO.=========================================
+ECHO.=  ERROR : PUT UR JFIF FILE TO /input   =
+ECHO.=========================================
+pause
+goto CONVERT
+) ELSE (
+ECHO.=========================================
+ECHO.=              converting               =
+ECHO.=========================================
+"%tools%nconvert" -quiet -overwrite -D -out png "%input%*.jfif" *.png
+cls
+ECHO.=========================================
+ECHO.=                Done..                 =
+ECHO.=========================================
+cls
+ECHO.=========================================
+ECHO.=             Fixing Photo              =
+ECHO.=========================================
+"%tools%nconvert" -quiet -overwrite -D -out png "%input%*png" *.png
+cls
+ECHO.=========================================
+ECHO.=                Done..                 =
 ECHO.=========================================
 
-timeout 3 > nul
+timeout /T 1 > nul
 cls
-goto MENU
+ECHO.=========================================
+ECHO.=       Check your /input file          =
+ECHO.=========================================
+cls
+timeout /T 5 > nul
+ goto CONVERT
+)
+
 
 :HELP
 ECHO.=========================================

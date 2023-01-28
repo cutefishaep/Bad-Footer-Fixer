@@ -20,7 +20,7 @@ And you will see cmd opened with this command
 ```bash
 =========================================
 =           Bad Footer Fixer            =
-=          version 1.0 STABLE           =
+=          version 1.3 STABLE           =
 =========================================
 =========================================
 = 1. Fix All (.JPG AND .PNG)            =
@@ -35,7 +35,7 @@ And you will see cmd opened with this command
 ## Features
 
 - Fix all JPG & PNG only with 1 command
-- Sharpen will be comming soon
+- Convert jfif to jpg or png
 - WORKS ON WINDOWS 7, 8, 10, 11
 - open source 😏
 
